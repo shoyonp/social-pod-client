@@ -5,13 +5,35 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import AddPost from "../pages/Dashboard/AddPost/AddPost";
 import MyProfile from "../pages/Dashboard/MyProfile.jsx/MyProfile";
 import MyPost from "../pages/Dashboard/MyPost/MyPost";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
+import Membership from "../layouts/Membership";
+import Payment from "../pages/Payment/Payment";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: <h2>page not found</h2>,
-    children: [{ path: "/", element: <Home></Home> }],
+    children: [
+      { path: "/", element: <Home></Home> },
+      {
+        path: "membership",
+        element: <Membership></Membership>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
+    ],
   },
   {
     path: "dashboard",
