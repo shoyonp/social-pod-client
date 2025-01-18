@@ -56,7 +56,7 @@ const Navbar = () => {
                 <a>User name</a>
               </li>
               <li>
-                <a>Dashboard</a>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
               <li>
                 <a>Logout</a>
