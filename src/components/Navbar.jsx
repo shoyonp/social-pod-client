@@ -1,8 +1,18 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/assets/icons8-forum-96.png";
 import { IoNotifications } from "react-icons/io5";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const handleLOgOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logout done")
+      })
+      .catch((err) => console.log(err));
+  };
   const links = (
     <>
       <NavLink to="/">Home</NavLink>
@@ -35,34 +45,38 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+          {/* after user login content */}
+          {user && user.email ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>{user?.displayName}</li>
+                <li>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                </li>
+
+                <li>
+                  <button onClick={handleLOgOut} className="btn">Logout</button>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a>User name</a>
-              </li>
-              <li>
-                <NavLink to="/dashboard">Dashboard</NavLink>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+          ) : (
+            "no"
+          )}
         </div>
       </div>
     </div>
