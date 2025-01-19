@@ -9,6 +9,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Membership from "../layouts/Membership";
 import Payment from "../pages/Payment/Payment";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -19,11 +20,19 @@ const routes = createBrowserRouter([
       { path: "/", element: <Home></Home> },
       {
         path: "membership",
-        element: <Membership></Membership>,
+        element: (
+          <PrivateRoute>
+            <Membership></Membership>
+          </PrivateRoute>
+        ),
       },
       {
         path: "payment",
-        element: <Payment></Payment>,
+        element: (
+          <PrivateRoute>
+            <Payment></Payment>
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",
@@ -42,15 +51,27 @@ const routes = createBrowserRouter([
       // user routes
       {
         path: "addPost",
-        element: <AddPost></AddPost>,
+        element: (
+          <PrivateRoute>
+            <AddPost></AddPost>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myProfile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myPost",
-        element: <MyPost></MyPost>,
+        element: (
+          <PrivateRoute>
+            <MyPost></MyPost>
+          </PrivateRoute>
+        ),
       },
       // adin routes
     ],
