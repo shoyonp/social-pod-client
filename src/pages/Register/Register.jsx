@@ -2,21 +2,32 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import SocialLogin from "../../components/SocialLogin";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
-  const { createUser } = useAuth();
-
+  const { createUser, updateUserProfile } = useAuth();
+const navigate = useNavigate()
   const onSubmit = (data) => {
-    createUser(data.email, data.password).then((result) => {
+    console.log(data);
+    createUser(data.email, data.password)
+    .then((result) => {
       const loggedUser = result.user;
-      toast.success("Register Success");
       console.log("logged user", loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          console.log("user info updated");
+          reset();
+          toast.success("Register Success");
+          navigate('/')
+        })
+        .catch((err) => console.log(err));
     });
   };
 
@@ -115,8 +126,13 @@ const Register = () => {
               </div>
             </form>
             <p>
-              Already have an account ? <Link className="text-blue-400" to="/login">login</Link> here
+              Already have an account ?
+              <Link className="text-blue-400" to="/login">
+                login
+              </Link>
+              here
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
