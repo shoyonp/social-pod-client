@@ -1,0 +1,101 @@
+[
+  {
+    "authorEmail": "johndoe@example.com",
+    "authorImg": "https://via.placeholder.com/150",
+    "authorName": "John Doe",
+    "title": "Exploring React.js for Modern Web Development",
+    "description": "React.js is a powerful JavaScript library for building user interfaces. This post covers its core features and benefits.",
+    "tags": ["Technology", "React", "JavaScript"],
+    "postTime": "January 14, 2025, 10:45 AM",
+    "comments": [
+      {
+        "commenterName": "Jane Smith",
+        "comment": "This is really insightful! Thanks for sharing.",
+        "commentTime": "January 14, 2025, 11:00 AM"
+      },
+      {
+        "commenterName": "Alex Johnson",
+        "comment": "React is definitely a game-changer in web development.",
+        "commentTime": "January 14, 2025, 11:15 AM"
+      }
+    ],
+    "upVote": 32,
+    "downVote": 2
+  },
+  {
+    "authorEmail": "janesmith@example.com",
+    "authorImg": "https://via.placeholder.com/150",
+    "authorName": "Jane Smith",
+    "title": "The Future of Health and AI Integration",
+    "description": "AI is transforming the healthcare industry by enabling more accurate diagnoses and personalized treatments.",
+    "tags": ["Health", "AI", "Technology"],
+    "postTime": "January 13, 2025, 2:15 PM",
+    "comments": [
+      {
+        "commenterName": "John Doe",
+        "comment": "This article is so informative! I learned a lot.",
+        "commentTime": "January 13, 2025, 3:00 PM"
+      }
+    ],
+    "upVote": 45,
+    "downVote": 3
+  },
+  {
+    "authorEmail": "alexjohnson@example.com",
+    "authorImg": "https://via.placeholder.com/150",
+    "authorName": "Alex Johnson",
+    "title": "Top 10 Movies to Watch in 2025",
+    "description": "Here are the most anticipated movies of 2025 that you don't want to miss!",
+    "tags": ["Entertainment", "Movies", "Lifestyle"],
+    "postTime": "January 12, 2025, 6:00 PM",
+    "comments": [
+      {
+        "commenterName": "Emily White",
+        "comment": "Great list! I can’t wait to watch these movies.",
+        "commentTime": "January 12, 2025, 6:30 PM"
+      },
+      {
+        "commenterName": "Mike Brown",
+        "comment": "You missed some great titles, but overall a solid list!",
+        "commentTime": "January 12, 2025, 7:00 PM"
+      }
+    ],
+    "upVote": 78,
+    "downVote": 5
+  },
+  {
+    "authorEmail": "mikebrown@example.com",
+    "authorImg": "https://via.placeholder.com/150",
+    "authorName": "Mike Brown",
+    "title": "Breaking Down the Latest Sports Highlights",
+    "description": "An in-depth analysis of the most thrilling moments in sports this week.",
+    "tags": ["Sports", "Analysis", "Highlights"],
+    "postTime": "January 11, 2025, 9:30 AM",
+    "comments": [],
+    "upVote": 50,
+    "downVote": 4
+  },
+  {
+    "authorEmail": "emilywhite@example.com",
+    "authorImg": "https://via.placeholder.com/150",
+    "authorName": "Emily White",
+    "title": "Scientific Innovations That Shaped 2025",
+    "description": "Discover the groundbreaking scientific advancements of 2025 and their potential impact.",
+    "tags": ["Science", "Innovation", "Research"],
+    "postTime": "January 10, 2025, 11:00 AM",
+    "comments": [
+      {
+        "commenterName": "John Doe",
+        "comment": "These innovations are truly groundbreaking!",
+        "commentTime": "January 10, 2025, 12:00 PM"
+      },
+      {
+        "commenterName": "Jane Smith",
+        "comment": "The future looks so promising with these advancements.",
+        "commentTime": "January 10, 2025, 12:30 PM"
+      }
+    ],
+    "upVote": 65,
+    "downVote": 3
+  }
+]

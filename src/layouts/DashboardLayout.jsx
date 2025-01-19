@@ -12,7 +12,7 @@ const DashboardLayout = () => {
         <div className="divider"></div>
         <NavLink to="/">Home</NavLink>
       </div>
-      <div>
+      <div className="flex-1">
         <Outlet></Outlet>
       </div>
       </div>
