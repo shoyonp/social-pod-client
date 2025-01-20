@@ -2,6 +2,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaComment, FaTrashAlt } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const MyPost = () => {
   const axiosSecure = useAxiosSecure();
@@ -15,14 +16,40 @@ const MyPost = () => {
     queryKey: ["myPosts", user.email],
     queryFn: async () => {
       const result = await axiosSecure.get(`/mypost/${user.email}`);
-      refetch();
       return result?.data;
     },
   });
   if (loading) {
     return <span className="loading loading-ring loading-lg"></span>;
   }
-  console.log(myPosts);
+
+  const handleDelete = (myPost) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure.delete(`/deletePost/${myPost._id}`)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+        }
+      });
+  };
+  //   console.log(myPosts);
   return (
     <div className="overflow-x-auto shadow-lg rounded-lg max-w-4xl mx-auto mt-6">
       <table className="min-w-full table-auto">
@@ -35,7 +62,7 @@ const MyPost = () => {
           </tr>
         </thead>
         <tbody className="text-gray-800">
-          {myPosts?.map((myPost) => (
+            {myPosts?.length > 0 ? myPosts?.map((myPost) => (
             <tr
               key={myPost._id}
               className="bg-white border-b hover:bg-gray-100 transition-all duration-300"
@@ -48,12 +75,20 @@ const MyPost = () => {
                 </button>
               </td>
               <td className="px-6 py-4 text-center">
-                <button className="btn btn-error p-2 rounded-full hover:scale-110 transform transition-all duration-300">
+                <button
+                  onClick={() => handleDelete(myPost)}
+                  className="btn btn-error p-2 rounded-full hover:scale-110 transform transition-all duration-300"
+                >
                   <FaTrashAlt size={20} />
                 </button>
               </td>
             </tr>
-          ))}
+          )) :  <tr>
+          <td colSpan="4" className="px-6 py-4 text-center text-gray-500">
+          No posts available. Please add some posts.
+          </td>
+        </tr>}
+          
         </tbody>
       </table>
     </div>
