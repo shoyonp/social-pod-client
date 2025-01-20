@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-
 import {
   FaComment,
   FaShareAlt,
@@ -7,12 +6,18 @@ import {
   FaThumbsUp,
 } from "react-icons/fa";
 import { useState } from "react";
+import {
+  FacebookShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  WhatsappShareButton,
+} from "react-share";
 
 const PostDetail = () => {
   const post = useLoaderData();
   const [comment, setComment] = useState("");
   const {
-    authorEmail,
+    _id,
     authorImg,
     authorName,
     postTime,
@@ -28,7 +33,7 @@ const PostDetail = () => {
     console.log(comment);
   };
 
-  //   console.log(post);
+  console.log(post);
   return (
     <div>
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6">
@@ -37,7 +42,7 @@ const PostDetail = () => {
           <img
             src={authorImg}
             alt="Author"
-            className="w-14 h-14 rounded-full border border-gray-300"
+            className="w-14 h-14 rounded-full object-cover border border-gray-300"
           />
           <div>
             <h3 className="text-lg font-semibold text-gray-800">
@@ -77,7 +82,20 @@ const PostDetail = () => {
 
           <button className="flex items-center gap-2 text-gray-600 hover:text-green-500">
             <FaShareAlt className="text-xl" />
-            <span>Share</span>
+            <span>Share to</span>
+            <FacebookShareButton
+              url={`${window.location.origin}/post/${_id}`}
+              hashtag={`#${tags}`}
+            >
+              <FacebookIcon size={35} round={true}></FacebookIcon>
+            </FacebookShareButton>
+            <WhatsappShareButton
+              url={`${window.location.origin}/post/${_id}`}
+              title={`${title} - ${description}`}
+              separator=" | "
+            >
+              <WhatsappIcon size={35} round={true}></WhatsappIcon>
+            </WhatsappShareButton>
           </button>
 
           <button className="flex items-center gap-2 text-gray-600 hover:text-yellow-500">
