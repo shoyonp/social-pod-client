@@ -56,48 +56,40 @@ const routes = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
     children: [
       // user routes
       {
-        path: "/dashboard/addPost",
-        element: (
-          <PrivateRoute>
-            <AddPost></AddPost>
-          </PrivateRoute>
-        ),
+        path: "addPost",
+        element: <AddPost></AddPost>,
       },
       {
-        path: "/dashboard/myProfile",
-        element: (
-          <PrivateRoute>
-            <MyProfile></MyProfile>
-          </PrivateRoute>
-        ),
+        path: "myProfile",
+        element: <MyProfile></MyProfile>,
       },
       {
-        path: "/dashboard/myPost",
-        element: (
-          <PrivateRoute>
-            <MyPost></MyPost>
-          </PrivateRoute>
-        ),
+        path: "myPost",
+        element: <MyPost></MyPost>,
       },
       // admin routes
       {
-        path: "/dashboard/adminProfile",
+        path: "adminProfile",
         element: <h2>on proccess</h2>,
       },
       {
-        path: "/dashboard/manageUser",
+        path: "manageUser",
         element: <h2>on proccess</h2>,
       },
       {
-        path: "/dashboard/reportedComment",
+        path: "reportedComment",
         element: <h2>on proccess</h2>,
       },
       {
-        path: "/dashboard/makeAnnouncement",
+        path: "makeAnnouncement",
         element: <h2>on proccess</h2>,
       },
     ],

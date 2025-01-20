@@ -12,8 +12,11 @@ import {
   FacebookIcon,
   WhatsappShareButton,
 } from "react-share";
+import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 
 const PostDetail = () => {
+  const { user } = useAuth();
   const post = useLoaderData();
   const [comment, setComment] = useState("");
   const {
@@ -30,7 +33,11 @@ const PostDetail = () => {
   } = post;
 
   const handleCommentSubmit = () => {
-    console.log(comment);
+    if (user && user.email) {
+      console.log(comment);
+    } else {
+      toast.error("You need to login to comment");
+    }
   };
 
   console.log(post);
@@ -100,7 +107,7 @@ const PostDetail = () => {
 
           <button className="flex items-center gap-2 text-gray-600 hover:text-yellow-500">
             <FaComment className="text-xl" />
-            <span>{comments.length}</span>
+            <span>{comments?.length}</span>
           </button>
         </div>
 
@@ -124,7 +131,7 @@ const PostDetail = () => {
 
           {/* render comments */}
           <div className="space-y-3">
-            {comments.length > 0 ? (
+            {comments?.length > 0 ? (
               comments?.map((cmt, index) => (
                 <div
                   key={index}

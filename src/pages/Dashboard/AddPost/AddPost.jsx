@@ -2,10 +2,18 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import moment from "moment/moment";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddPost = () => {
   const { user } = useAuth();
+  const axiosPublic = useAxiosPublic();
   const { register, handleSubmit, reset, setValue, watch } = useForm();
+  const selectedTags = watch("tags");
+  const formattedDate = moment().format("MMMM Do YYYY, h:mm A");
+  const navigate = useNavigate();
   const animatedComponents = makeAnimated();
   const tagOptions = [
     { value: "technology", label: "Technology" },
@@ -14,19 +22,26 @@ const AddPost = () => {
     { value: "entertainment", label: "Entertainment" },
     { value: "sports", label: "Sports" },
   ];
-  const selectedTags = watch("tags");
 
   const onSubmit = (data) => {
     console.log(data);
-    const newData = {
+    const newPost = {
       ...data,
+      tags: data.tags?.map((tag) => tag.value) || [],
       authorName: user?.displayName,
       authorImg: user?.photoURL,
       authorEmail: user?.email,
       upVote: parseInt(0),
       downVote: parseInt(0),
+      postTime: formattedDate,
     };
-    console.log(newData);
+    console.log(newPost);
+
+    axiosPublic.post("/newPost", newPost).then((res) => {
+      toast.success("post success");
+      navigate("/dashboard/myPost");
+      //   console.log(res.data);
+    });
   };
 
   return (

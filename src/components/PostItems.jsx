@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
 import PostItemCard from "./PostItemCard";
 import usePost from "../hooks/usePost";
 
 const PostItems = () => {
-  const [posts] = usePost()
+  const [posts] = usePost();
   return (
     <div>
       <h2>Posts Here</h2>
       <div>
-        {[...posts]?.reverse()?.map((post,index) => (
-          <PostItemCard post={post} key={index}></PostItemCard>
+        {[...posts]?.reverse()?.map((post) => (
+          <PostItemCard post={post} key={post._id}></PostItemCard>
         ))}
       </div>
     </div>
