@@ -11,7 +11,7 @@ const usePost = () => {
   } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/posts");
+      const res = await axiosPublic.get("/post");
       return res.data;
     },
   });

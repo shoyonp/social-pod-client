@@ -10,6 +10,7 @@ import Register from "../pages/Register/Register";
 import Membership from "../layouts/Membership";
 import Payment from "../pages/Payment/Payment";
 import PrivateRoute from "./PrivateRoute";
+import PostDetail from "../pages/PostDetail/PostDetail";
 
 const routes = createBrowserRouter([
   {
@@ -17,7 +18,16 @@ const routes = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     errorElement: <h2>page not found</h2>,
     children: [
-      { path: "/", element: <Home></Home> },
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "post/:id",
+        element: <PostDetail></PostDetail>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/post/${params.id}`),
+      },
       {
         path: "membership",
         element: (
