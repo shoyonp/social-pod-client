@@ -15,11 +15,14 @@ import {
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useComment from "../../hooks/useComment";
 
 const PostDetail = () => {
   const { user } = useAuth();
   const post = useLoaderData();
-  const [comment, setComment] = useState("");
+  const axiosSecure = useAxiosSecure();
+  const [commentText, setCommentText] = useState("");
   const {
     _id,
     authorImg,
@@ -30,18 +33,36 @@ const PostDetail = () => {
     description,
     downVote,
     upVote,
-    comments,
   } = post;
+  //   getting data by custom
+  const [comments, , refetch] = useComment(title);
 
-  const handleCommentSubmit = () => {
+  // submit a comment
+  const handleCommentSubmit = async () => {
     if (user && user.email) {
-      console.log(comment);
+      const newComment = {
+        comment: commentText,
+        title,
+        commenterName: user.displayName,
+        commenterEmail: user.email,
+      };
+
+      try {
+        const res = await axiosSecure.post("/comments", newComment);
+        if (res.data.insertedId) {
+          toast.success("Comment added successfully!");
+          setCommentText("");
+          refetch();
+        }
+      } catch (error) {
+        toast.error("Failed to add comment. Try again!");
+      }
     } else {
       toast.error("You need to login to comment");
     }
   };
+//   console.log(comments);
 
-  console.log(post);
   return (
     <>
       <Helmet>
@@ -92,7 +113,7 @@ const PostDetail = () => {
               <span>{downVote}</span>
             </button>
 
-            <button className="flex items-center gap-2 text-gray-600 hover:text-green-500">
+            <div className="flex items-center gap-2 text-gray-600 hover:text-green-500">
               <FaShareAlt className="text-xl" />
               <span>Share to</span>
               <FacebookShareButton
@@ -108,7 +129,7 @@ const PostDetail = () => {
               >
                 <WhatsappIcon size={35} round={true}></WhatsappIcon>
               </WhatsappShareButton>
-            </button>
+            </div>
 
             <button className="flex items-center gap-2 text-gray-600 hover:text-yellow-500">
               <FaComment className="text-xl" />
@@ -122,7 +143,7 @@ const PostDetail = () => {
             <div className="flex gap-2 mb-4">
               <input
                 type="text"
-                onChange={(e) => setComment(e.target.value)}
+                onChange={(e) => setCommentText(e.target.value)}
                 placeholder="Write a comment..."
                 className="flex-grow p-2 border border-gray-300 rounded-lg"
               />
@@ -137,7 +158,7 @@ const PostDetail = () => {
             {/* render comments */}
             <div className="space-y-3">
               {comments?.length > 0 ? (
-                comments?.map((cmt, index) => (
+                comments?.reverse()?.map((cmt, index) => (
                   <div
                     key={index}
                     className="p-3 border border-gray-200 rounded-lg"
