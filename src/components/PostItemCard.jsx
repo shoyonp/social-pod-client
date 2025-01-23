@@ -1,18 +1,20 @@
 import React from "react";
 import { FaRegComment, FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useComment from "../hooks/useComment";
 
 const PostItemCard = ({ post }) => {
-    const {
-        authorImg,
-        authorName,
-        postTime,
-        title,
-        tags,
-        downVote,
-        upVote,
-      } = post;
-//   console.log(post);
+  const { 
+    authorImg, 
+    authorName, 
+    postTime, 
+    title, 
+    tags, 
+    downVote, 
+    upVote } =
+    post;
+  const [comments] = useComment(title);
+//   console.log(comments);
   return (
     <>
       <Link to={`/post/${post._id}`}>
@@ -27,9 +29,7 @@ const PostItemCard = ({ post }) => {
           {/* Post Details */}
           <div className="flex-1">
             {/* Title */}
-            <h2 className="text-lg font-semibold text-gray-800">
-              {title}
-            </h2>
+            <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 my-2">
@@ -46,8 +46,7 @@ const PostItemCard = ({ post }) => {
             {/* Author & Time */}
             <div className="text-sm text-gray-500">
               <p>
-                By <span className="font-medium">{authorName}</span> •
-                {postTime}
+                By <span className="font-medium">{authorName}</span> •{postTime}
               </p>
             </div>
           </div>
@@ -57,9 +56,7 @@ const PostItemCard = ({ post }) => {
             {/* Comments */}
             <div className="flex items-center gap-1">
               <FaRegComment className="text-xl text-blue-500" />
-              <span className="text-lg font-medium">
-             {/* {comments?.length} */}
-              </span>
+              <span className="text-lg font-medium">{comments?.length}</span>
             </div>
 
             {/* Upvotes */}

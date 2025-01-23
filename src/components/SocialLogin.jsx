@@ -2,6 +2,7 @@ import React from "react";
 import { FaGoogle } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const SocialLogin = () => {
   const { googleSignIn } = useAuth();

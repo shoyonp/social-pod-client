@@ -34,7 +34,7 @@ const PostDetail = () => {
     downVote,
     upVote,
   } = post;
-  //   getting data by custom
+  //   getting data by custom hook
   const [comments, , refetch] = useComment(title);
 
   // submit a comment
@@ -43,6 +43,7 @@ const PostDetail = () => {
       const newComment = {
         comment: commentText,
         title,
+        postId: _id,
         commenterName: user.displayName,
         commenterEmail: user.email,
       };
@@ -61,7 +62,15 @@ const PostDetail = () => {
       toast.error("You need to login to comment");
     }
   };
-//   console.log(comments);
+
+  // update vote
+  const handleUpdateVote = async (type) => {
+    const res = await axiosSecure.patch(`/post/${_id}`, { type });
+    if (res.data.modifiedCount > 0 && type) {
+      toast.success(`${type === "upVote" ? "Upvote" : "Downvote"} updated!`);
+    }
+    // console.log(res.data);
+  };
 
   return (
     <>
@@ -103,12 +112,19 @@ const PostDetail = () => {
 
           {/* action buttons */}
           <div className="flex items-center gap-6 border-t pt-4">
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+            {/* upVote */}
+            <button
+              onClick={() => handleUpdateVote("upVote")}
+              className="flex items-center gap-2 text-gray-600 hover:text-blue-500"
+            >
               <FaThumbsUp className="text-xl" />
               <span>{upVote}</span>
             </button>
-
-            <button className="flex items-center gap-2 text-gray-600 hover:text-red-500">
+            {/* downVote */}
+            <button
+              onClick={() => handleUpdateVote("downVote")}
+              className="flex items-center gap-2 text-gray-600 hover:text-red-500"
+            >
               <FaThumbsDown className="text-xl" />
               <span>{downVote}</span>
             </button>

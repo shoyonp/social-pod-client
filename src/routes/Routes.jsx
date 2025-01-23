@@ -11,6 +11,7 @@ import Membership from "../layouts/Membership";
 import Payment from "../pages/Payment/Payment";
 import PrivateRoute from "./PrivateRoute";
 import PostDetail from "../pages/PostDetail/PostDetail";
+import PostsComment from "../pages/Dashboard/PostsComment/PostsComment";
 
 const routes = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const routes = createBrowserRouter([
       {
         path: "myPost",
         element: <MyPost></MyPost>,
+      },
+      {
+        path: "comments/:postId",
+        element: <PostsComment></PostsComment>,
       },
       // admin routes
       {

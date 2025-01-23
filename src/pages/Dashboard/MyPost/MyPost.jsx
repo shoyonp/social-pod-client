@@ -3,6 +3,7 @@ import { FaComment, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useMyPost from "../../../hooks/useMyPost";
+import { Link } from "react-router-dom";
 
 const MyPost = () => {
   const axiosSecure = useAxiosSecure();
@@ -34,6 +35,8 @@ const MyPost = () => {
       }
     });
   };
+
+
   //   console.log(myPosts);
 //   if (loading) {
 //     return (
@@ -68,9 +71,9 @@ const MyPost = () => {
                   <td className="px-6 py-4">{myPost?.title}</td>
                   <td className="px-6 py-4">{myPost?.upVote}</td>
                   <td className="px-6 py-4 text-center">
-                    <button className="btn btn-primary p-2 rounded-full hover:scale-110 transform transition-all duration-300">
+                    <Link to={`/dashboard/comments/${myPost._id}`} className="btn btn-primary p-2 rounded-full hover:scale-110 transform transition-all duration-300">
                       <FaComment size={20} />
-                    </button>
+                    </Link>
                   </td>
                   <td className="px-6 py-4 text-center">
                     <button

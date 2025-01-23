@@ -9,7 +9,7 @@ const DashboardLayout = () => {
         <title>Social Pod | Dashboard</title>
       </Helmet>
       <div className="flex">
-        <div className="flex flex-col w-64 bg-slate-500 h-screen">
+        <div className="flex flex-col w-64 bg-slate-500 min-h-screen">
           <NavLink to="/dashboard/myProfile">My Profile</NavLink>
           <NavLink to="/dashboard/addPost">Add Post</NavLink>
           <NavLink to="/dashboard/myPost">My Post</NavLink>
