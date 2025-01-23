@@ -66,7 +66,7 @@ const Navbar = () => {
               >
                 <li>{user?.displayName}</li>
                 <li>
-                  <NavLink to="/dashboard">Dashboard</NavLink>
+                  <NavLink to="/dashboard/myProfile">Dashboard</NavLink>
                 </li>
 
                 <li>

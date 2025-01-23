@@ -12,6 +12,10 @@ import Payment from "../pages/Payment/Payment";
 import PrivateRoute from "./PrivateRoute";
 import PostDetail from "../pages/PostDetail/PostDetail";
 import PostsComment from "../pages/Dashboard/PostsComment/PostsComment";
+import AdminProfile from "../pages/Dashboard/AdminProfile/AdminProfile";
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import Activities from "../pages/Dashboard/Activities/Activities";
+import Announcement from "../pages/Dashboard/Announcement/Announcement";
 
 const routes = createBrowserRouter([
   {
@@ -83,19 +87,19 @@ const routes = createBrowserRouter([
       // admin routes
       {
         path: "adminProfile",
-        element: <h2>on proccess</h2>,
+        element: <AdminProfile></AdminProfile>,
       },
       {
         path: "manageUser",
-        element: <h2>on proccess</h2>,
+        element: <ManageUsers></ManageUsers>,
       },
       {
-        path: "reportedComment",
-        element: <h2>on proccess</h2>,
+        path: "activities",
+        element: <Activities></Activities>,
       },
       {
         path: "makeAnnouncement",
-        element: <h2>on proccess</h2>,
+        element: <Announcement></Announcement>,
       },
     ],
   },

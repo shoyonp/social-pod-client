@@ -10,7 +10,7 @@ const MyProfile = () => {
   const [myPosts] = useMyPost();
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>Social Pod | My Profile</title>
       </Helmet>
@@ -104,7 +104,7 @@ const MyProfile = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

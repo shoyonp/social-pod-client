@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
+  // TODO: get isAdmin value from the database
+  const isAdmin = true;
   return (
     <>
       <Helmet>
@@ -10,10 +12,22 @@ const DashboardLayout = () => {
       </Helmet>
       <div className="flex">
         <div className="flex flex-col w-64 bg-slate-500 min-h-screen">
-          <NavLink to="/dashboard/myProfile">My Profile</NavLink>
-          <NavLink to="/dashboard/addPost">Add Post</NavLink>
-          <NavLink to="/dashboard/myPost">My Post</NavLink>
+          {isAdmin ? (
+            <>
+            <NavLink to="/dashboard/adminProfile">Admin Profile</NavLink>
+          <NavLink to="/dashboard/manageUser">Manage Users</NavLink>
+          <NavLink to="/dashboard/activities">Activities</NavLink>
+          <NavLink to="/dashboard/makeAnnouncement">Make Announcement</NavLink>
+          </>
+          ) : (
+            <>
+              <NavLink to="/dashboard/myProfile">My Profile</NavLink>
+              <NavLink to="/dashboard/addPost">Add Post</NavLink>
+              <NavLink to="/dashboard/myPost">My Post</NavLink>
+            </>
+          )}
           <div className="divider"></div>
+          {/* shared routes */}
           <NavLink to="/">Home</NavLink>
         </div>
         <div className="flex-1">

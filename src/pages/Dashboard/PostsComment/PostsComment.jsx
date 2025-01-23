@@ -73,13 +73,13 @@ const PostsComment = () => {
                   </td>
                   <td className="p-4 border">
                     <select
-                    defaultValue="default"
-                      className="p-2 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      defaultValue="default"
+                      className="p-2 border rounded w-full focus:ring-2 focus:ring-blue-400"
                       onChange={(e) =>
                         handleFeedback(comment._id, e.target.value)
                       }
                     >
-                      <option value="default" disabled >
+                      <option value="default" disabled>
                         Select feedback
                       </option>
                       <option value="Inappropriate content">
@@ -95,14 +95,10 @@ const PostsComment = () => {
                   </td>
                   <td className="p-4 border">
                     <button
-                      className={`px-4 py-2 rounded text-white transition duration-300 w-full text-center ${
-                        selectedFeedback[comment._id]
-                          ? "bg-red-500 hover:bg-red-600"
-                          : "bg-gray-400 cursor-not-allowed"
-                      }`}
+                      className="btn btn-primary"
                       onClick={() => handleReportClick(comment._id)}
                       disabled={
-                        !selectedFeedback[comment._id] || reported[comment._id]
+                        !selectedFeedback[comment._id]
                       }
                     >
                       {reported[comment._id] ? "Reported" : "Report"}
