@@ -33,7 +33,7 @@ const PostsComment = () => {
         <title>Social Pod | Feedback Comment</title>
       </Helmet>
 
-      <div className="container mx-auto mt-10 p-5 bg-white shadow-2xl rounded-lg max-w-4xl">
+      <div className="mx-auto w-full mt-10 p-5 bg-white shadow-2xl rounded-lg  overflow-x-auto">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
           Comments Management
         </h2>
@@ -73,12 +73,13 @@ const PostsComment = () => {
                   </td>
                   <td className="p-4 border">
                     <select
+                    defaultValue="default"
                       className="p-2 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
                       onChange={(e) =>
                         handleFeedback(comment._id, e.target.value)
                       }
                     >
-                      <option value="" disabled selected>
+                      <option value="default" disabled >
                         Select feedback
                       </option>
                       <option value="Inappropriate content">

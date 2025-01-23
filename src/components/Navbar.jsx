@@ -17,7 +17,7 @@ const Navbar = () => {
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/membership">Membership</NavLink>
-      <NavLink to="/login">Join US</NavLink>
+      {user && user.email ? "" : <NavLink to="/login">Join US</NavLink>}
     </>
   );
   return (

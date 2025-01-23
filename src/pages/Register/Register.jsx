@@ -4,8 +4,10 @@ import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -13,19 +15,30 @@ const Register = () => {
     reset,
   } = useForm();
   const { createUser, updateUserProfile } = useAuth();
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     console.log(data);
-    createUser(data.email, data.password)
-    .then((result) => {
+    createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log("logged user", loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("user info updated");
-          reset();
-          toast.success("Register Success");
-          navigate('/')
+          // set user in database
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            image: data.photoURL,
+            badge:"Bronze"
+          };
+          axiosPublic.post("/users",userInfo)
+          .then((res) => {
+            if (res.data.insertedId) {
+              console.log("user added to  db");
+              reset();
+              toast.success("Register Success");
+              navigate("/");
+            }
+          });
         })
         .catch((err) => console.log(err));
     });

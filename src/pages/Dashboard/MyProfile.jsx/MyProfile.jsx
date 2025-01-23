@@ -77,7 +77,7 @@ const MyProfile = () => {
             >
               Recent Posts
             </motion.h3>
-            <ul className="space-y-4">
+           {myPosts && myPosts.length > 0 ?  <ul className="space-y-4">
               {myPosts?.slice(0, 3)?.map((post, index) => (
                 <motion.li
                   key={index}
@@ -100,7 +100,7 @@ const MyProfile = () => {
                   </Link>
                 </motion.li>
               ))}
-            </ul>
+            </ul> : "No posts available. Please add some posts."}
           </motion.div>
         </div>
       </div>
