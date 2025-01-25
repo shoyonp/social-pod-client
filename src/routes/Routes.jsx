@@ -16,6 +16,7 @@ import AdminProfile from "../pages/Dashboard/AdminProfile/AdminProfile";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import Activities from "../pages/Dashboard/Activities/Activities";
 import Announcement from "../pages/Dashboard/Announcement/Announcement";
+import AdminRoute from "./AdminRoute";
 
 const routes = createBrowserRouter([
   {
@@ -87,19 +88,35 @@ const routes = createBrowserRouter([
       // admin routes
       {
         path: "adminProfile",
-        element: <AdminProfile></AdminProfile>,
+        element: (
+          <AdminRoute>
+            <AdminProfile></AdminProfile>
+          </AdminRoute>
+        ),
       },
       {
         path: "manageUser",
-        element: <ManageUsers></ManageUsers>,
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "activities",
-        element: <Activities></Activities>,
+        element: (
+          <AdminRoute>
+            <Activities></Activities>
+          </AdminRoute>
+        ),
       },
       {
         path: "makeAnnouncement",
-        element: <Announcement></Announcement>,
+        element: (
+          <AdminRoute>
+            <Announcement></Announcement>
+          </AdminRoute>
+        ),
       },
     ],
   },

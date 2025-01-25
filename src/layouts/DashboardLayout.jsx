@@ -1,10 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 const DashboardLayout = () => {
   // TODO: get isAdmin value from the database
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <>
       <Helmet>
@@ -14,11 +15,13 @@ const DashboardLayout = () => {
         <div className="flex flex-col w-64 bg-slate-500 min-h-screen">
           {isAdmin ? (
             <>
-            <NavLink to="/dashboard/adminProfile">Admin Profile</NavLink>
-          <NavLink to="/dashboard/manageUser">Manage Users</NavLink>
-          <NavLink to="/dashboard/activities">Activities</NavLink>
-          <NavLink to="/dashboard/makeAnnouncement">Make Announcement</NavLink>
-          </>
+              <NavLink to="/dashboard/adminProfile">Admin Profile</NavLink>
+              <NavLink to="/dashboard/manageUser">Manage Users</NavLink>
+              <NavLink to="/dashboard/activities">Activities</NavLink>
+              <NavLink to="/dashboard/makeAnnouncement">
+                Make Announcement
+              </NavLink>
+            </>
           ) : (
             <>
               <NavLink to="/dashboard/myProfile">My Profile</NavLink>
