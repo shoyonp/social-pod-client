@@ -1,11 +1,91 @@
-import React from 'react';
+import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const Announcement = () => {
-    return (
-        <div>
-            make announcement
-        </div>
-    );
+  const { register, handleSubmit, reset } = useForm();
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const onSubmit = async (data) => {
+    console.log(data);
+    const announcementData = {
+      ...data,
+      authorName: user?.displayName,
+      authorImage: user?.photoURL,
+    };
+    const res = await axiosSecure.post("/announcement", announcementData);
+    console.log(res.data);
+    reset();
+    if(res.data.insertedId){
+        toast.success("Your announcement has been published!")
+    }
+  };
+  return (
+    <motion.div
+      className="max-w-2xl mx-auto bg-neutral-800 p-8 rounded-2xl shadow-lg mt-10"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <h2 className="text-3xl font-bold text-neutral-200 text-center mb-6">
+        Make an Announcement
+      </h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <motion.div whileHover={{ scale: 1.05 }} className="flex flex-col">
+          <label className="text-neutral-300 mb-2">Author Image URL</label>
+          <input
+            type="text"
+            defaultValue={user.photoURL}
+            className="input input-bordered w-full bg-neutral-700 text-neutral-200 border-none focus:ring-2 focus:ring-neutral-500"
+            placeholder="Enter image URL"
+            readOnly
+          />
+        </motion.div>
+
+        <motion.div whileHover={{ scale: 1.05 }} className="flex flex-col">
+          <label className="text-neutral-300 mb-2">Author Name</label>
+          <input
+            type="text"
+            defaultValue={user?.displayName}
+            className="input input-bordered w-full bg-neutral-700 text-neutral-200 border-none focus:ring-2 focus:ring-neutral-500"
+            placeholder="Enter your name"
+            readOnly
+          />
+        </motion.div>
+
+        <motion.div whileHover={{ scale: 1.05 }} className="flex flex-col">
+          <label className="text-neutral-300 mb-2">Title</label>
+          <input
+            type="text"
+            {...register("title", { required: true })}
+            className="input input-bordered w-full bg-neutral-700 text-neutral-200 border-none focus:ring-2 focus:ring-neutral-500"
+            placeholder="Enter announcement title"
+          />
+        </motion.div>
+
+        <motion.div whileHover={{ scale: 1.05 }} className="flex flex-col">
+          <label className="text-neutral-300 mb-2">Description</label>
+          <textarea
+            {...register("description", { required: true })}
+            className="textarea textarea-bordered w-full bg-neutral-700 text-neutral-200 border-none focus:ring-2 focus:ring-neutral-500"
+            placeholder="Enter detailed description"
+            rows={5}
+          />
+        </motion.div>
+
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <button
+            type="submit"
+            className="btn btn-primary w-full bg-neutral-600 hover:bg-neutral-700 text-white font-bold py-3 px-6 rounded-xl shadow-md"
+          >
+            Submit Announcement
+          </button>
+        </motion.div>
+      </form>
+    </motion.div>
+  );
 };
 
 export default Announcement;
