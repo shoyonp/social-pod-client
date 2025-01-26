@@ -3,9 +3,11 @@ import logo from "../assets/assets/icons8-forum-96.png";
 import { IoNotifications } from "react-icons/io5";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import useAnnouncement from "../hooks/useAnnouncement";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [announcements] = useAnnouncement();
   const handleLOgOut = () => {
     logOut()
       .then(() => {
@@ -41,7 +43,9 @@ const Navbar = () => {
             >
               <div className="indicator">
                 <IoNotifications className="text-2xl"></IoNotifications>
-                <span className="badge badge-sm indicator-item">8</span>
+                <span className="badge badge-sm indicator-item">
+                  {announcements?.length}
+                </span>
               </div>
             </div>
           </div>

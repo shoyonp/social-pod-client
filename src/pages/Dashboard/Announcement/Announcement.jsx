@@ -3,11 +3,13 @@ import { motion } from "framer-motion";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import useAnnouncement from "../../../hooks/useAnnouncement";
 
 const Announcement = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const [, , refetch] = useAnnouncement()
   const onSubmit = async (data) => {
     console.log(data);
     const announcementData = {
@@ -20,6 +22,7 @@ const Announcement = () => {
     reset();
     if(res.data.insertedId){
         toast.success("Your announcement has been published!")
+        refetch()
     }
   };
   return (
