@@ -5,9 +5,13 @@ import useAuth from "../../../hooks/useAuth";
 import { FaAward } from "react-icons/fa";
 import { motion } from "framer-motion";
 import useMyPost from "../../../hooks/useMyPost";
+import useBadge from "../../../hooks/useBadge";
+
 const MyProfile = () => {
   const { user } = useAuth();
   const [myPosts] = useMyPost();
+  const { badge } = useBadge();
+  console.log(badge);
 
   return (
     <>
@@ -57,7 +61,7 @@ const MyProfile = () => {
             >
               <div className="flex items-center justify-center">
                 <FaAward className="text-yellow-500 mr-2" size={24} />
-                <span className="font-bold text-lg">Bronze Badge</span>
+                <span className="font-bold text-lg">{badge?.badge}</span>
               </div>
             </motion.div>
           </motion.div>
@@ -77,30 +81,36 @@ const MyProfile = () => {
             >
               Recent Posts
             </motion.h3>
-           {myPosts && myPosts.length > 0 ?  <ul className="space-y-4">
-              {myPosts?.slice(0, 3)?.map((post, index) => (
-                <motion.li
-                  key={index}
-                  className="bg-gray-50 p-4 rounded-lg shadow-md hover:bg-gray-100 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <h4 className="text-lg font-medium text-gray-800">
-                    {post.title}
-                  </h4>
-                  <p className="text-sm text-gray-600">Date: {post.postTime}</p>
-                  <p className="text-sm text-gray-600">
-                    Upvotes: {post.upVote}
-                  </p>
-                  <Link
-                    to={`/post/${post._id}`}
-                    className="text-indigo-600 hover:text-indigo-800 mt-2 inline-block"
+            {myPosts && myPosts.length > 0 ? (
+              <ul className="space-y-4">
+                {myPosts?.slice(0, 3)?.map((post, index) => (
+                  <motion.li
+                    key={index}
+                    className="bg-gray-50 p-4 rounded-lg shadow-md hover:bg-gray-100 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    View Post
-                  </Link>
-                </motion.li>
-              ))}
-            </ul> : "No posts available. Please add some posts."}
+                    <h4 className="text-lg font-medium text-gray-800">
+                      {post.title}
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Date: {post.postTime}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Upvotes: {post.upVote}
+                    </p>
+                    <Link
+                      to={`/post/${post._id}`}
+                      className="text-indigo-600 hover:text-indigo-800 mt-2 inline-block"
+                    >
+                      View Post
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            ) : (
+              "No posts available. Please add some posts."
+            )}
           </motion.div>
         </div>
       </div>

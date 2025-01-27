@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
@@ -13,9 +14,15 @@ const CheckoutForm = () => {
   const { user } = useAuth();
   const price = 10;
 
+  // update the badge
   const handleChangeBadge = async (email) => {
-    const res = await axiossecure.post("/payment-success", {email});
+    const res = await axiossecure.post("/payment-success", { email });
     console.log(res.data);
+    if (res.data.modifiedCount > 0) {
+      toast.success("Payment success & Badge updated to Gold successfully");
+    } else {
+      toast.error("Already has Gold badge");
+    }
   };
 
   useEffect(() => {
