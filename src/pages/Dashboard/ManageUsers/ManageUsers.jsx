@@ -3,17 +3,13 @@ import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
+import useUsers from "../../../hooks/useUsers";
 
 const ManageUsers = () => {
   const [search, setSearch] = useState("");
+  const [users,refetch] = useUsers(search)
   const axiosSecure = useAxiosSecure();
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ["users", search],
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/users?search=${search}`);
-      return res.data;
-    },
-  });
+  console.log(users);
 
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {

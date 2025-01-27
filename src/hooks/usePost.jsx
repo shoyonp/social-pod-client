@@ -1,7 +1,7 @@
 import useAxiosPublic from "./useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
-const usePost = () => {
+const usePost = (search) => {
   const axiosPublic = useAxiosPublic();
 
   const {
@@ -9,9 +9,9 @@ const usePost = () => {
     isPending: loading,
     refetch,
   } = useQuery({
-    queryKey: ["posts"],
+    queryKey: ["posts",search],
     queryFn: async () => {
-      const res = await axiosPublic.get("/post");
+      const res = await axiosPublic.get(`/post?search=${search || ""}`);
       return res.data;
     },
   });

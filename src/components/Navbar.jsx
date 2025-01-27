@@ -4,10 +4,12 @@ import { IoNotifications } from "react-icons/io5";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import useAnnouncement from "../hooks/useAnnouncement";
+import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [announcements] = useAnnouncement();
+  const [isAdmin] = useAdmin();
   const handleLOgOut = () => {
     logOut()
       .then(() => {
@@ -69,10 +71,16 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>{user?.displayName}</li>
-                <li>
-                  <NavLink to="/dashboard/myProfile">Dashboard</NavLink>
-                </li>
-
+                {user && isAdmin && (
+                  <li>
+                    <NavLink to="/dashboard/adminProfile">Dashboard</NavLink>
+                  </li>
+                )}
+                {user && !isAdmin && (
+                  <li>
+                    <NavLink to="/dashboard/myProfile">Dashboard</NavLink>
+                  </li>
+                )}
                 <li>
                   <button onClick={handleLOgOut} className="btn">
                     Logout
