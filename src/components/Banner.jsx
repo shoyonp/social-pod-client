@@ -7,7 +7,6 @@ const Banner = () => {
   const [tags, loading] = useTag();
   const [search, setSearch] = useState("");
   const [posts] = usePost(search);
-  console.log(search);
   if (loading) {
     return (
       <div className="flex justify-center items-center h-32">
@@ -17,7 +16,7 @@ const Banner = () => {
   }
 
   const handleSearch = () => {
-    console.log("Searching for", search);
+    // console.log("Searching for", search);
   };
 
   return (
