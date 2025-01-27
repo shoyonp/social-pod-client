@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import useMyPost from "../../../hooks/useMyPost";
 import useBadge from "../../../hooks/useBadge";
+import useTag from "../../../hooks/useTag";
 
 const AddPost = () => {
   const { user } = useAuth();
@@ -20,14 +21,14 @@ const AddPost = () => {
   const animatedComponents = makeAnimated();
   const [myPosts] = useMyPost();
   const { badge } = useBadge();
+  const [tags] = useTag();
+  console.log(tags);
 
-  const tagOptions = [
-    { value: "technology", label: "Technology" },
-    { value: "health", label: "Health" },
-    { value: "science", label: "Science" },
-    { value: "entertainment", label: "Entertainment" },
-    { value: "sports", label: "Sports" },
-  ];
+  // tags
+  const tagOptions = tags?.map((tag) => ({
+    value: tag?.value,
+    label: tag?.label,
+  }));
 
   const onSubmit = (data) => {
     console.log(data);
