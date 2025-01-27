@@ -17,12 +17,13 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import Activities from "../pages/Dashboard/Activities/Activities";
 import Announcement from "../pages/Dashboard/Announcement/Announcement";
 import AdminRoute from "./AdminRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <h2>page not found</h2>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
