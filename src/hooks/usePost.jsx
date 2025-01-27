@@ -1,7 +1,7 @@
 import useAxiosPublic from "./useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
-const usePost = (search) => {
+const usePost = (currentPage, postsPerPage) => {
   const axiosPublic = useAxiosPublic();
 
   const {
@@ -9,9 +9,11 @@ const usePost = (search) => {
     isPending: loading,
     refetch,
   } = useQuery({
-    queryKey: ["posts",search],
+    queryKey: ["posts", currentPage, postsPerPage],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/post?search=${search || ""}`);
+      const res = await axiosPublic.get(
+        `/post?page=${currentPage}&size=${postsPerPage}`
+      );
       return res.data;
     },
   });
