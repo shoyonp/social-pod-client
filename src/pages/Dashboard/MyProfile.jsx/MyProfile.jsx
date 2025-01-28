@@ -11,7 +11,7 @@ const MyProfile = () => {
   const { user } = useAuth();
   const [myPosts] = useMyPost();
   const { badge } = useBadge();
-  console.log(badge);
+  console.log("bage here", badge);
 
   return (
     <>
@@ -30,7 +30,7 @@ const MyProfile = () => {
             <motion.img
               src={user?.photoURL}
               alt="User Profile"
-              className="w-32 h-32 rounded-full border-4 border-gray-300 mb-4"
+              className="w-32 h-32 rounded-full border-4 object-cover border-gray-300 mb-4"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
             />

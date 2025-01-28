@@ -33,7 +33,7 @@ const routes = createBrowserRouter([
         path: "post/:id",
         element: <PostDetail></PostDetail>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/post/${params.id}`),
+          fetch(`https://socialpod-server.vercel.app/post/${params.id}`),
       },
       {
         path: "membership",

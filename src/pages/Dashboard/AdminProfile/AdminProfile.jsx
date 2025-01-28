@@ -109,7 +109,7 @@ const AdminProfile = () => {
             <img
               src={user?.photoURL}
               alt="Admin"
-              className="w-28 h-28 rounded-full border-4 border-gray-200"
+              className="w-28 h-28 object-cover rounded-full border-4 border-gray-200"
             />
             <div>
               <h2 className="text-2xl font-semibold text-gray-700">

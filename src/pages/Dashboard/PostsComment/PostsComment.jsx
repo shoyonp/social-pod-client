@@ -48,64 +48,70 @@ const PostsComment = () => {
               </tr>
             </thead>
             <tbody>
-              {comments.map((comment) => (
-                <tr
-                  key={comment._id}
-                  className="hover:bg-gray-100 transition duration-300"
-                >
-                  <td className="p-4 border text-gray-700">
-                    {comment?.commenterEmail}
-                  </td>
-                  <td className="p-4 border text-gray-700">
-                    {comment?.comment?.length > 20 ? (
-                      <>
-                        {comment.comment.substring(0, 20)}...
-                        <button
-                          className="text-blue-500 ml-2 underline"
-                          onClick={() => handleReadMore(comment?.comment)}
-                        >
-                          Read More
-                        </button>
-                      </>
-                    ) : (
-                      comment?.comment
-                    )}
-                  </td>
-                  <td className="p-4 border">
-                    <select
-                      defaultValue="default"
-                      className="p-2 border rounded w-full focus:ring-2 focus:ring-blue-400"
-                      onChange={(e) =>
-                        handleFeedback(comment._id, e.target.value)
-                      }
-                    >
-                      <option value="default" disabled>
-                        Select feedback
-                      </option>
-                      <option value="Inappropriate content">
-                        Inappropriate content
-                      </option>
-                      <option value="Spam or advertisement">
-                        Spam or advertisement
-                      </option>
-                      <option value="Harassment or bullying">
-                        Harassment or bullying
-                      </option>
-                    </select>
-                  </td>
-                  <td className="p-4 border">
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => handleReportClick(comment._id)}
-                      disabled={
-                        !selectedFeedback[comment._id]
-                      }
-                    >
-                      {reported[comment._id] ? "Reported" : "Report"}
-                    </button>
+              {comments && comments.length === 0 ? (
+                <tr>
+                  <td colSpan="4" className="p-4 text-center text-gray-700">
+                    No Comments To Show
                   </td>
                 </tr>
-              ))}
+              ) : (
+                comments.map((comment) => (
+                  <tr
+                    key={comment._id}
+                    className="hover:bg-gray-100 transition duration-300"
+                  >
+                    <td className="p-4 border text-gray-700">
+                      {comment?.commenterEmail}
+                    </td>
+                    <td className="p-4 border text-gray-700">
+                      {comment?.comment?.length > 20 ? (
+                        <>
+                          {comment.comment.substring(0, 20)}...
+                          <button
+                            className="text-blue-500 ml-2 underline"
+                            onClick={() => handleReadMore(comment?.comment)}
+                          >
+                            Read More
+                          </button>
+                        </>
+                      ) : (
+                        comment?.comment
+                      )}
+                    </td>
+                    <td className="p-4 border">
+                      <select
+                        defaultValue="default"
+                        className="p-2 border rounded w-full focus:ring-2 focus:ring-blue-400"
+                        onChange={(e) =>
+                          handleFeedback(comment._id, e.target.value)
+                        }
+                      >
+                        <option value="default" disabled>
+                          Select feedback
+                        </option>
+                        <option value="Inappropriate content">
+                          Inappropriate content
+                        </option>
+                        <option value="Spam or advertisement">
+                          Spam or advertisement
+                        </option>
+                        <option value="Harassment or bullying">
+                          Harassment or bullying
+                        </option>
+                      </select>
+                    </td>
+                    <td className="p-4 border">
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => handleReportClick(comment._id)}
+                        disabled={!selectedFeedback[comment._id]}
+                      >
+                        {reported[comment._id] ? "Reported" : "Report"}
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
