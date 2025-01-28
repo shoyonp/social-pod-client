@@ -13,24 +13,24 @@ Key features :
 - share option on facebook and whatsapp
 
 npm packages :
-    "@stripe/stripe-js": "^5.5.0",
-    "@tanstack/react-query": "^5.64.2",
-    "axios": "^1.7.9",
-    "firebase": "^11.2.0",
-    "framer-motion": "^12.0.0",
-    "moment": "^2.30.1",
-    "react-fast-marquee": "^1.6.5",
-    "react-helmet-async": "^2.0.5",
-    "react-hook-form": "^7.54.2",
-    "react-hot-toast": "^2.5.1",
-    "react-icons": "^5.4.0",
-    "react-modal": "^3.16.3",
-    "react-router-dom": "^7.1.1",
-    "react-select": "^5.9.0",
-    "react-share": "^5.1.2",
-    "recharts": "^2.15.0",
-    "sort-by": "^1.2.0",
-    "sweetalert2": "^11.15.10",
-    "swiper": "^11.2.1"
+-@stripe/stripe-js": "^5.5.0
+-@tanstack/react-query": "^5.64.2
+-axios": "^1.7.9
+-firebase": "^11.2.0
+-framer-motion": "^12.0.0
+-moment": "^2.30.1
+-react-fast-marquee": "^1.6.5
+-react-helmet-async": "^2.0.5
+-react-hook-form": "^7.54.2
+-react-hot-toast": "^2.5.1
+-react-icons": "^5.4.0
+-react-modal": "^3.16.3
+-react-router-dom": "^7.1.1
+-react-select": "^5.9.0
+-react-share": "^5.1.2
+-recharts": "^2.15.0
+-sort-by": "^1.2.0
+-sweetalert2": "^11.15.10
+-swiper": "^11.2.
 
 Live URL : https://social-pod-51966.web.app/
