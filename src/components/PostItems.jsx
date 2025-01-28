@@ -40,8 +40,8 @@ const PostItems = () => {
             onClick={() => setCurrentPage(page)}
             className={
               currentPage === page
-                ? "btn rounded-md mr-3 bg-blue-600 text-white"
-                : "btn rounded-md mr-3"
+                ? "btn px-5 py-1 mr-3 bg-blue-600 text-white hover:bg-blue-700 transition "
+                : "btn  px-5 py-1 mr-3"
             }
             key={page}
           >

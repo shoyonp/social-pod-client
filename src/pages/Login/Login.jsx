@@ -30,10 +30,12 @@ const Login = () => {
         <title>Social Pod | Login</title>
       </Helmet>
       <div>
-        <div className="hero min-h-screen">
+        <div className="hero">
           <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-              <h1 className="text-5xl font-bold">Login now!</h1>
+            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-md rounded-md p-5">
+              <h1 className="text-2xl font-bold text-center text-gray-800">
+                Login now!
+              </h1>
               <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                 {/* email */}
                 <div className="form-control">
@@ -78,19 +80,22 @@ const Login = () => {
                 <div className="form-control mt-6">
                   <input
                     type="submit"
-                    className="btn btn-neutral"
+                    className="btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md shadow-md w-full"
                     value="Login"
                   />
                 </div>
               </form>
-              <p>
+              <p className="text-center text-gray-600">
                 New Here?
-                <Link to="/register" className="text-blue-400">
+                <Link to="/register" className="text-blue-500 hover:underline">
                   Register
                 </Link>
-                Here
+                here.
               </p>
-              <SocialLogin></SocialLogin>
+              {/* Social Login */}
+              <div className="mt-4 text-center">
+                <SocialLogin />
+              </div>
             </div>
           </div>
         </div>

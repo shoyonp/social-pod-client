@@ -33,7 +33,7 @@ const PostsComment = () => {
         <title>Social Pod | Feedback Comment</title>
       </Helmet>
 
-      <div className="mx-auto w-full mt-10 p-5 bg-white shadow-2xl rounded-lg  overflow-x-auto">
+      <div className="mx-auto w-full mt-10 p-5 bg-white shadow-md rounded-md  overflow-x-auto">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
           Comments Management
         </h2>

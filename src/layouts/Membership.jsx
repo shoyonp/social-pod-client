@@ -45,7 +45,7 @@ const Membership = () => {
       {memberships.map((membership, index) => (
         <div
           key={index}
-          className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition h-full flex flex-col justify-between"
+          className="bg-white p-6 rounded-md shadow-md hover:shadow-xl transition h-full flex flex-col justify-between hover:scale-105"
         >
           {/* membership title and price */}
           <div className="text-center">

@@ -28,10 +28,9 @@ const Register = () => {
             name: data.name,
             email: data.email,
             image: data.photoURL,
-            badge:"Bronze"
+            badge: "Bronze",
           };
-          axiosPublic.post("/users",userInfo)
-          .then((res) => {
+          axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
               console.log("user added to  db");
               reset();
@@ -49,11 +48,13 @@ const Register = () => {
       <Helmet>
         <title>Social Pod | Register</title>
       </Helmet>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left"></div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <h1 className="text-5xl font-bold">Register now!</h1>
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-md rounded-md p-7">
+            <h1 className="text-2xl font-bold text-center text-gray-800">
+              Register now!
+            </h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {/* name */}
               <div className="form-control">
@@ -135,17 +136,24 @@ const Register = () => {
                 )}
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button className="btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md shadow-md w-full">
+                  Register
+                </button>
               </div>
             </form>
-            <p>
+
+            <p className="text-center text-gray-600">
               Already have an account ?
-              <Link className="text-blue-400" to="/login">
+              <Link to="/login" className="text-blue-500 hover:underline">
                 login
               </Link>
-              here
+              here.
             </p>
-            <SocialLogin></SocialLogin>
+
+            {/* Social Login */}
+            <div className="mt-4 text-center">
+              <SocialLogin />
+            </div>
           </div>
         </div>
       </div>

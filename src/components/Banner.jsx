@@ -21,28 +21,37 @@ const Banner = () => {
 
   return (
     <>
-      <div className=" bg-gradient-to-r from-blue-500 to-purple-600 p-8 text-white">
-        <h1 className="text-4xl font-bold mb-4">Search Posts</h1>
-        <div className="flex items-center">
+      <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-6 md:p-12 text-white shadow-md  w-full mx-auto mt-4">
+        <h1 className="text-3xl md:text-4xl font-semibold mb-6 text-center">
+          Search Posts
+        </h1>
+        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
           <input
             type="text"
             placeholder="Search by tags..."
-            className="p-2 rounded-l-md w-1/2 text-gray-800"
+            className="p-3 w-11/12 md:w-1/2 rounded-md shadow-md focus:outline-none focus:ring-2 text-gray-800 transition transform duration-300 ease-in-out hover:scale-105"
             onBlur={(e) => setSearch(e.target.value)}
           />
           <button
             onClick={handleSearch}
-            className="bg-blue-700 p-2 rounded-r-md text-white"
+            className="bg-blue-600 p-3 w-11/12 md:w-auto rounded-md text-white shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105"
           >
             Search
+          </button>
+
+          <button className="bg-gradient-to-r from-blue-400 to-blue-600 p-3 w-11/12 md:w-auto rounded-md text-white shadow-md hover:from-blue-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
+            Sort by Popularity
           </button>
         </div>
       </div>
 
-      <div className="flex justify-center space-x-2 mt-4 w-11/12 mx-auto">
+      <div className="flex justify-center space-x-3 mt-8 w-full mx-auto">
         <Marquee pauseOnHover={true}>
           {tags?.map((tag) => (
-            <span key={tag.value} className="text-gray-600 mx-2 ">
+            <span
+              key={tag.value}
+              className="text-gray-600 mx-2 text-sm md:text-base"
+            >
               #{tag.label}
             </span>
           ))}

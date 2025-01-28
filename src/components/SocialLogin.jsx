@@ -31,13 +31,16 @@ const SocialLogin = () => {
   };
   return (
     <div>
-      <div className="divider"></div>
-      <div>
-        <button onClick={handeGoogleSignIn} className="btn btn-neutral">
-          Login With <FaGoogle></FaGoogle>
-        </button>
-      </div>
-    </div>
+  <div className="divider text-gray-500">OR</div>
+  <div className="mt-2">
+    <button
+      onClick={handeGoogleSignIn}
+      className="btn btn-block flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-md shadow-md bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-500 transition-all"
+    >
+      <FaGoogle className="text-lg" /> Login with Google
+    </button>
+  </div>
+</div>
   );
 };
 

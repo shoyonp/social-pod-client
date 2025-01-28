@@ -76,35 +76,39 @@ const CheckoutForm = () => {
     }
   };
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="w-full max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
       <form onSubmit={handleSubmit}>
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#424770",
-                "::placeholder": {
-                  color: "#aab7c4",
+        <div className="border border-gray-300 p-3 rounded-lg mb-4">
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#424770",
+                  "::placeholder": {
+                    color: "#aab7c4",
+                  },
+                },
+                invalid: {
+                  color: "#9e2146",
                 },
               },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
+            }}
+          />
+        </div>
         <button
           onClick={() => handleChangeBadge(user?.email)}
           type="submit"
-          className="btn btn-primary btn-sm my-4"
+          className="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-medium rounded-lg shadow-md hover:from-blue-600 hover:to-blue-800 transition duration-300 "
           disabled={!stripe || !clientSecret}
         >
           Pay
         </button>
-        <p className="text-red-500">{error}</p>
+        {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
         {transactionId && (
-          <p className="text-green-500">Your Transaction id: {transactionId}</p>
+          <p className="text-green-600 text-sm mt-3 font-medium">
+            Your Transaction ID: {transactionId}
+          </p>
         )}
       </form>
     </div>

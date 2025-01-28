@@ -36,29 +36,28 @@ const MyPost = () => {
     });
   };
 
-
   //   console.log(myPosts);
-//   if (loading) {
-//     return (
-//       <div className="flex justify-center items-center h-screen">
-//         <span className="loading loading-ring loading-lg text-primary"></span>
-//       </div>
-//     );
-//   }
+  //   if (loading) {
+  //     return (
+  //       <div className="flex justify-center items-center h-screen">
+  //         <span className="loading loading-ring loading-lg text-primary"></span>
+  //       </div>
+  //     );
+  //   }
 
   return (
     <>
       <Helmet>
         <title>Social Pod | My Post</title>
       </Helmet>
-      <div className="overflow-x-auto shadow-lg rounded-lg max-w-4xl mx-auto mt-6">
+      <div className="overflow-x-auto shadow-md rounded-md max-w-4xl mx-auto mt-4">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-800 text-white">
             <tr>
               <th className="px-6 py-3 text-left">Post Title</th>
               <th className="px-6 py-3 text-left">Votes</th>
-              <th className="px-6 py-3 text-center">Actions</th>
-              <th className="px-6 py-3 text-center">Actions</th>
+              <th className="px-6 py-3 text-center">Comments</th>
+              <th className="px-6 py-3 text-center">Delete</th>
             </tr>
           </thead>
           <tbody className="text-gray-800">
@@ -71,16 +70,19 @@ const MyPost = () => {
                   <td className="px-6 py-4">{myPost?.title}</td>
                   <td className="px-6 py-4">{myPost?.upVote}</td>
                   <td className="px-6 py-4 text-center">
-                    <Link to={`/dashboard/comments/${myPost._id}`} className="btn btn-primary p-2 rounded-full hover:scale-110 transform transition-all duration-300">
-                      <FaComment size={20} />
+                    <Link
+                      to={`/dashboard/comments/${myPost._id}`}
+                      className="btn bg-green-500 hover:bg-green-600 hover:scale-110 transform transition-all duration-300"
+                    >
+                      <FaComment size={20} className="text-gray-100" />
                     </Link>
                   </td>
                   <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => handleDelete(myPost)}
-                      className="btn btn-error p-2 rounded-full hover:scale-110 transform transition-all duration-300"
+                      className="btn bg-red-500 hover:bg-red-600 hover:scale-110 transform transition-all duration-300"
                     >
-                      <FaTrashAlt size={20} />
+                      <FaTrashAlt size={20} className="text-gray-100" />
                     </button>
                   </td>
                 </tr>
