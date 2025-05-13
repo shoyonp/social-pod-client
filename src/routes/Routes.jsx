@@ -32,8 +32,6 @@ const routes = createBrowserRouter([
       {
         path: "post/:id",
         element: <PostDetail></PostDetail>,
-        loader: ({ params }) =>
-          fetch(`https://socialpod-server.vercel.app/post/${params.id}`),
       },
       {
         path: "membership",
