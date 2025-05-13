@@ -33,4 +33,18 @@ npm packages :
 - sweetalert2": "^11.15.10
 - swiper": "^11.2.
 
+How to run on local machine :
+
+git clone
+npm install
+you need firebase variable keys : 
+VITE_apiKey=AIzaSyCXDFJlv1jmk50_3TOZHRV2AYIzeaRUNJU
+VITE_authDomain=social-pod-51966.firebaseapp.com
+VITE_projectId=social-pod-51966
+VITE_storageBucket=social-pod-51966.firebasestorage.app
+VITE_messagingSenderId=243430317127
+VITE_appId=1:243430317127:web:0433f2ffbc121dd1f1e562
+VITE_Payment_Gateway_PK=pk_test_51QgHhyH6SVFcYLsbkVgoH5HJj6Nx7NtoSlLOdXZ6lBRxSveFkZniskV5JeBwJvOUje1n967gsu49LlrF1HGSTJin004NXxCEay
+and the backend Here is server repo link:https://github.com/shoyonp/social-pod-server
+
 Live URL : https://social-pod-51966.web.app/
