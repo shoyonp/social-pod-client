@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { Helmet } from "react-helmet-async";
@@ -10,7 +9,9 @@ const MainLayout = () => {
         <title>Social Pod | Home</title>
       </Helmet>
       <Navbar></Navbar>
-      <Outlet></Outlet>
+      <div className="pt-16">
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };

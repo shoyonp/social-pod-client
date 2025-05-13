@@ -78,7 +78,8 @@ const PostDetail = () => {
       <Helmet>
         <title>Social Pod | Post Details</title>
       </Helmet>
-      <motion.div
+      <div className="pt-0 lg:pt-16">
+        <motion.div
         className="max-w-3xl mx-auto bg-white shadow-md rounded-md p-8"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -161,7 +162,7 @@ const PostDetail = () => {
         {/* comment section */}
         <div className="mt-6">
           <h3 className="text-xl font-semibold mb-2">Comments</h3>
-          <div className="flex gap-2 mb-4">
+          <div className="flex flex-col md:flex-row   gap-2 mb-4">
             <input
               type="text"
               onChange={(e) => setCommentText(e.target.value)}
@@ -198,6 +199,7 @@ const PostDetail = () => {
           </div>
         </div>
       </motion.div>
+      </div>
     </>
   );
 };

@@ -21,7 +21,7 @@ const Banner = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-6 md:p-12 text-white shadow-md  w-full mx-auto mt-4">
+      <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-6 md:p-12 text-white shadow-md  w-full mx-auto ">
         <h1 className="text-3xl md:text-4xl font-semibold mb-6 text-center">
           Search Posts
         </h1>
@@ -38,7 +38,6 @@ const Banner = () => {
           >
             Search
           </button>
-
           <button className="bg-gradient-to-r from-blue-400 to-blue-600 p-3 w-11/12 md:w-auto rounded-md text-white shadow-md hover:from-blue-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
             Sort by Popularity
           </button>

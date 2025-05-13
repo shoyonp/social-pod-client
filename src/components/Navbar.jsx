@@ -58,7 +58,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar bg-white px-4 md:px-8 my-3">
+      <div className="navbar fixed top-0 left-0 w-full z-50 bg-white shadow-md px-4 md:px-8 ">
         {/* Logo */}
         <div className="flex-1 flex items-center gap-3">
           <img src={logo} className="w-8 md:w-9" alt="Logo" />
