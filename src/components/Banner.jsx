@@ -5,8 +5,10 @@ import usePost from "../hooks/usePost";
 
 const Banner = () => {
   const [tags, loading] = useTag();
+  const [inputText, setInputText] = useState("");
   const [search, setSearch] = useState("");
-  const [posts] = usePost(search);
+  const [posts] = usePost(0, 10, search);
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-32">
@@ -16,9 +18,9 @@ const Banner = () => {
   }
 
   const handleSearch = () => {
-    // console.log("Searching for", search);
+    setSearch(inputText);
   };
-
+  // console.log("searching for :", search);
   return (
     <>
       <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-6 md:p-12 text-white shadow-md  w-full mx-auto ">
@@ -30,7 +32,8 @@ const Banner = () => {
             type="text"
             placeholder="Search by tags..."
             className="p-3 w-11/12 md:w-1/2 rounded-md shadow-md focus:outline-none focus:ring-2 text-gray-800 transition transform duration-300 ease-in-out hover:scale-105"
-            onBlur={(e) => setSearch(e.target.value)}
+            onChange={(e) => setInputText(e.target.value)}
+            value={inputText}
           />
           <button
             onClick={handleSearch}
