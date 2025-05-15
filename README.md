@@ -1,3 +1,4 @@
+# Social Pod
 The name of the project is : Social Pod
 
 This is Forun type Website where users can engage in meaningful conversations by posting messages.The platform facilitates discussions on various topics ,users can share there thought which every one can read this ,this platform allowing members to share insights,
@@ -11,6 +12,15 @@ Key features :
 - Stripe Payment System
 - Admin can make a normal user to Admin and the admin have all the information
 - share option on facebook and whatsapp
+
+🧰 Tech Stack
+Frontend: React, TailwindCSS, React Router
+Backend: Node.js, Express, Firebase, MongoDB
+Payment Gateway: Stripe
+Animations: Framer Motion
+Forms & Validation: React Hook Form
+Notifications: React Hot Toast, SweetAlert2
+Charts: Recharts
 
 npm packages :
 - @stripe/stripe-js": "^5.5.0
@@ -49,5 +59,5 @@ copy paste there this firebase variable keys :
 
 npm run dev
 
-backend  repo link:https://github.com/shoyonp/social-pod-server
-Live URL : https://social-pod-51966.web.app/
+- Backend repo link:https://github.com/shoyonp/social-pod-server
+- Live URL : https://social-pod-51966.web.app/
