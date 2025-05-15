@@ -73,15 +73,46 @@ const Navbar = () => {
           </div>
           {/* Notifications */}
           <div className="dropdown dropdown-end">
-            <button className="btn btn-ghost btn-circle relative">
-              <IoNotificationsOutline className="text-2xl text-gray-600" />
+            <div
+              tabIndex={0}
+              role="button"
+              className="p-1  border border-gray-300 hover:border-blue-400 rounded-full transition-all duration-300 shadow-sm mx-1"
+            >
+              <IoNotificationsOutline className="text-[26px] text-gray-600 group-hover:text-blue-600 transition" />
               {announcements?.length > 0 && (
-                <span className="badge badge-sm bg-blue-500 text-white absolute top-0 right-0">
+                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow animate-bounce">
                   {announcements.length}
                 </span>
               )}
-            </button>
+            </div>
+            {/* notification content */}
+            <div
+              tabIndex={0}
+              className="dropdown-content z-[100] mt-4 w-80 max-h-96 overflow-y-auto bg-white border border-gray-200 rounded-2xl shadow-lg p-4 transition-all duration-300 origin-top-right animate-fade-in"
+            >
+              <p className="font-semibold text-gray-800 mb-3">
+                📢 Announcements
+              </p>
+              {announcements.length === 0 ? (
+                <p className="text-sm text-gray-500">No new announcements.</p>
+              ) : (
+                announcements.map((announcement, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 hover:bg-blue-50 px-3 py-2 rounded-xl text-sm text-gray-700 mb-2 shadow-sm transition"
+                  >
+                    <div className="flex items-start gap-2">
+                      <span className="text-blue-500 text-lg">🔔</span>
+                      <span>
+                        {announcement?.title || "New announcement available!"}
+                      </span>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
+
           {/* after user login content */}
           {user && user.email ? (
             <div className="dropdown dropdown-end text-center z-10">
