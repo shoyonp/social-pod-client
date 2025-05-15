@@ -90,13 +90,13 @@ const Navbar = () => {
     <>
       <div className="navbar fixed top-0 left-0 w-full z-50 bg-white shadow-md px-4 md:px-8 ">
         {/* Logo */}
-        <div className="flex-1 flex items-center gap-3">
+        <div className="flex-1 flex items-center gap-4">
           <img src={logo} className="w-8 md:w-9" alt="Logo" />
           <Link to="/" className="title text-gray-700">
             <span>S</span>ocial <span>P</span>od
           </Link>
         </div>
-        <div className="flex">
+        <div className="flex items-center gap-3">
           {/* links */}
           <div className="hidden md:flex">
             <ul className="flex gap-4 text-gray-600 font-medium">{links}</ul>
@@ -106,7 +106,7 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="p-1  border border-gray-300 hover:border-blue-400 rounded-full transition-all duration-300 shadow-sm mx-1"
+              className="p-1 border border-gray-300 hover:border-blue-400 rounded-full transition-all duration-300 shadow-sm "
             >
               <IoNotificationsOutline className="text-[26px] text-gray-600 group-hover:text-blue-600 transition" />
               {announcements?.length > 0 && (

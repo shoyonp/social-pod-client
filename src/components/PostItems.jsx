@@ -28,13 +28,13 @@ const PostItems = () => {
     );
   }
   return (
-    <div>
+    <>
       <div>
         {[...posts]?.reverse()?.map((post) => (
           <PostItemCard post={post} key={post._id}></PostItemCard>
         ))}
       </div>
-      <div className="items-center mx-auto text-center my-4">
+      <div className="items-center mx-auto text-center">
         {pages.map((page) => (
           <button
             onClick={() => setCurrentPage(page)}
@@ -49,7 +49,7 @@ const PostItems = () => {
           </button>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

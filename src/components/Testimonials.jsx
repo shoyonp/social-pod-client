@@ -74,11 +74,11 @@ const Testimonials = () => {
           What People Say About Us
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
-              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition duration-300"
+              className="bg-white rounded-md shadow-lg p-6 border border-gray-100 hover:shadow-xl transition duration-300"
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.3 }}
@@ -94,7 +94,7 @@ const Testimonials = () => {
                   <h4 className="text-lg font-semibold text-gray-800">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-blue-600">{testimonial.title}</p>
+                  <p className="text-sm">{testimonial.title}</p>
                 </div>
               </div>
               <div className="flex items-center mb-2">

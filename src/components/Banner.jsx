@@ -12,7 +12,7 @@ const Banner = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-32">
-        <p>Loading tags...</p>
+        <span className="loading loading-bars loading-lg"></span>
       </div>
     );
   }
