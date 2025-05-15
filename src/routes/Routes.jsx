@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ContactUs from "../pages/Contact/ContactUs";
 import Guidelines from "../pages/Guidelines/Guidelines";
+import AboutPage from "../pages/AboutPage/AboutPage";
 
 const routes = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const routes = createBrowserRouter([
       {
         path: "guidelines",
         element: <Guidelines></Guidelines>
+      },
+      {
+        path: "aboutpage",
+        element: <AboutPage/>
       },
       {
         path: "payment",
