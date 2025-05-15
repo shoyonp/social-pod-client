@@ -70,7 +70,7 @@ const Banner = () => {
 
       {/* Marquee Section */}
       <div className="flex justify-center w-full mx-auto mt-[-20px] px-2 z-20 relative">
-        <div className="w-full max-w-6xl rounded-xl border border-gray-200 bg-white shadow-lg py-2 px-4 overflow-hidden">
+        <div className=" md:w-11/12 lg:max-w-6xl  rounded-xl border border-gray-200 bg-white shadow-lg py-2 px-4 overflow-hidden">
           <Marquee pauseOnHover={true} gradient={false} speed={50}>
             {tags?.map((tag) => (
               <span

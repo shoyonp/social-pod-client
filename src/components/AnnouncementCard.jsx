@@ -20,7 +20,8 @@ const AnnouncementCard = () => {
 
   return (
     <>
-      <div className="w-full md:w-3/5 mx-auto p-4 rounded-md shadow-md mt-6 mb-4 bg-white text-black border border-gray-200">
+      <div className="px-3 md:px-2">
+        <div className="md:w-11/12 lg:max-w-6xl mx-auto py-2 px-3 rounded-md shadow-md mt-6 mb-4 bg-white text-black border border-gray-200">
         <div className="flex justify-between items-center p-1">
           <div className="items-center gap-2 text-lg font-semibold">
             <div className="flex items-center gap-2 text-lg font-semibold">
@@ -32,7 +33,7 @@ const AnnouncementCard = () => {
           <motion.button
             className="btn-ghost p-3 rounded-full"
             onClick={() => setShowAnnouncements(!showAnnouncements)}
-            whileTap={{ scale: 0.9 }} // Adds scale effect on click
+            whileTap={{ scale: 0.9 }} 
             transition={{ duration: 0.2 }}
           >
             <IoIosArrowDown
@@ -102,6 +103,7 @@ const AnnouncementCard = () => {
             </Swiper>
           </motion.div>
         )}
+      </div>
       </div>
     </>
   );
