@@ -21,6 +21,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ContactUs from "../pages/Contact/ContactUs";
 import Guidelines from "../pages/Guidelines/Guidelines";
 import AboutPage from "../pages/AboutPage/AboutPage";
+import FaqPage from "../pages/Faq/FaqPage";
 
 const routes = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const routes = createBrowserRouter([
       {
         path: "aboutpage",
         element: <AboutPage/>
+      },
+      {
+        path: "faq",
+        element: <FaqPage/>
       },
       {
         path: "payment",

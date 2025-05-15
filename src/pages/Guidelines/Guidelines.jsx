@@ -12,7 +12,7 @@ const Guidelines = () => {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, type: "spring" }}
-        className="text-3xl md:text-4xl font-bold text-blue-700 mb-6"
+        className="text-3xl md:text-4xl font-bold text-black mb-6"
       >
         Community Guidelines
       </motion.h1>

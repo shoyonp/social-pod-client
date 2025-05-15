@@ -99,12 +99,6 @@ const DashboardLayout = () => {
                   >
                     My Post
                   </NavLink>
-                  <NavLink
-                    to="/contact"
-                    className="block p-2 rounded-md hover:bg-white hover:text-blue-600  transition mb-3"
-                  >
-                    Contact Us
-                  </NavLink>
                 </>
               )}
 
@@ -115,6 +109,30 @@ const DashboardLayout = () => {
                 className="block p-2 rounded-md hover:bg-white hover:text-blue-600  transition mb-3"
               >
                 Home
+              </NavLink>
+              <NavLink
+                to="/guidelines"
+                className="block p-2 rounded-md hover:bg-white hover:text-blue-600  transition mb-3"
+              >
+                Guidelines
+              </NavLink>
+              <NavLink
+                to="/aboutpage"
+                className="block p-2 rounded-md hover:bg-white hover:text-blue-600  transition mb-3"
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className="block p-2 rounded-md hover:bg-white hover:text-blue-600  transition mb-3"
+              >
+                Contact Us
+              </NavLink>
+              <NavLink
+                to="/faq"
+                className="block p-2 rounded-md hover:bg-white hover:text-blue-600  transition mb-3"
+              >
+                FAQ
               </NavLink>
               <button
                 onClick={handleLogOut}

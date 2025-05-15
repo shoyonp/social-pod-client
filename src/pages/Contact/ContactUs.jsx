@@ -30,7 +30,7 @@ const ContactUs = () => {
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-blue-700 text-center mb-10">
+          <h2 className="text-4xl font-bold text-black text-center mb-10">
             Contact Us
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -130,7 +130,7 @@ const ContactUs = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="bg-white shadow-lg rounded-xl p-6 md:p-10"
             >
-              <h3 className="text-xl font-semibold text-blue-700 mb-4">
+              <h3 className="text-xl font-semibold text-black mb-4">
                 Get in Touch
               </h3>
               <p className="text-gray-700 mb-4">
