@@ -40,6 +40,16 @@ const Navbar = () => {
       >
         Membership
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `py-2 rounded-md transition ${
+            isActive ? "active" : "hover:bg-gray-100"
+          }`
+        }
+        to="/contact"
+      >
+        Contact Us
+      </NavLink>
       {user && user.email ? (
         ""
       ) : (

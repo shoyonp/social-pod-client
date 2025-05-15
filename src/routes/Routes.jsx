@@ -18,6 +18,7 @@ import Activities from "../pages/Dashboard/Activities/Activities";
 import Announcement from "../pages/Dashboard/Announcement/Announcement";
 import AdminRoute from "./AdminRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ContactUs from "../pages/Contact/ContactUs";
 
 const routes = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const routes = createBrowserRouter([
             <Membership></Membership>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "contact",
+        element: <ContactUs></ContactUs>,
       },
       {
         path: "payment",
