@@ -14,13 +14,13 @@ Key features :
 - share option on facebook and whatsapp
 
 🧰 Tech Stack
-Frontend: React, TailwindCSS, React Router
-Backend: Node.js, Express, Firebase, MongoDB
-Payment Gateway: Stripe
-Animations: Framer Motion
-Forms & Validation: React Hook Form
-Notifications: React Hot Toast, SweetAlert2
-Charts: Recharts
+- Frontend: React, TailwindCSS, React Router
+- Backend: Node.js, Express, Firebase, MongoDB
+- Payment Gateway: Stripe
+- Animations: Framer Motion
+- Forms & Validation: React Hook Form
+- Notifications: React Hot Toast, SweetAlert2
+- Charts: Recharts
 
 npm packages :
 - @stripe/stripe-js": "^5.5.0
