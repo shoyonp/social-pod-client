@@ -13,7 +13,6 @@ const Home = () => {
         <PostItems></PostItems>
       </div>
       <Testimonials></Testimonials>
-
       <Footer></Footer>
     </div>
   );
