@@ -46,6 +46,16 @@ const Navbar = () => {
             isActive ? "active" : "hover:bg-gray-100"
           }`
         }
+        to="/guidelines"
+      >
+        Guidelines
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `py-2 rounded-md transition ${
+            isActive ? "active" : "hover:bg-gray-100"
+          }`
+        }
         to="/contact"
       >
         Contact Us

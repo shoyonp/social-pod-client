@@ -19,6 +19,7 @@ import Announcement from "../pages/Dashboard/Announcement/Announcement";
 import AdminRoute from "./AdminRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ContactUs from "../pages/Contact/ContactUs";
+import Guidelines from "../pages/Guidelines/Guidelines";
 
 const routes = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const routes = createBrowserRouter([
       {
         path: "contact",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "guidelines",
+        element: <Guidelines></Guidelines>
       },
       {
         path: "payment",
