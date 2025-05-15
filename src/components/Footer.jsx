@@ -1,5 +1,13 @@
+import toast from "react-hot-toast";
 import logo from "../assets/assets/icons8-communicate-pieces-96.png";
+import { useRef } from "react";
 const Footer = () => {
+  const emailRef = useRef();
+  const handleSentEmail = () => {
+    const email = emailRef.current.value;
+    console.log(email);
+    // toast.success("Email sent");
+  };
   return (
     <>
       <footer className="bg-white border-t border-gray-200 text-gray-700 mt-16">
@@ -29,7 +37,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/posts" className="hover:text-blue-600 transition">
+                  <a href="/" className="hover:text-blue-600 transition">
                     Posts
                   </a>
                 </li>
@@ -69,10 +77,16 @@ const Footer = () => {
               <div className="mt-2 flex items-center">
                 <input
                   type="email"
+                  name="email"
+                  ref={emailRef}
                   placeholder="Your email"
+                  required
                   className="px-3 py-2 w-full rounded-l-md border border-gray-300 focus:outline-none text-sm"
                 />
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition text-sm">
+                <button
+                  onClick={handleSentEmail}
+                  className="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition text-sm"
+                >
                   Subscribe
                 </button>
               </div>

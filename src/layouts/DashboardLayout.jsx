@@ -99,6 +99,12 @@ const DashboardLayout = () => {
                   >
                     My Post
                   </NavLink>
+                  <NavLink
+                    to="/contact"
+                    className="block p-2 rounded-md hover:bg-white hover:text-blue-600  transition mb-3"
+                  >
+                    Contact Us
+                  </NavLink>
                 </>
               )}
 

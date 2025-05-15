@@ -26,7 +26,7 @@ const Banner = () => {
       {/* Banner with Gradient Background and Wave */}
       <div className="relative bg-gradient-to-r from-blue-700 via-blue-500 to-indigo-600 p-6 md:p-12 md:pt-16 text-white shadow-md w-full h-[320px] flex flex-col justify-center items-center">
         <div className="relative z-10 px-4 w-full max-w-6xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 animate-bounce">
             Search Posts
           </h1>
 
