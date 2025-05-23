@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
 import boltShape from "../../assets/bolt_pc.svg";
 import boltMobile from "../../assets/bolt_mobile.svg";
 
